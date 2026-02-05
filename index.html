@@ -75,8 +75,8 @@
         /* Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
+            grid-template-columns: repeat(4, minmax(220px, 1fr));
+            gap: 1.5rem;
             animation: fadeInUp 0.5s ease-out 0.1s both;
         }
 
@@ -84,8 +84,8 @@
         .card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 1.25rem 1rem;
+            border-radius: 20px;
+            padding: 1.25rem 0.5rem;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
             text-decoration: none;
@@ -93,7 +93,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            min-height: 160px;
+            height: 200px;
+            overflow: hidden;
         }
 
         .card-content {
@@ -139,14 +140,20 @@
         }
 
         .card .domain-highlight {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: #059669 !important;
-            letter-spacing: 0.03em;
+            letter-spacing: -0.02em;
             text-shadow: 0 0 12px rgba(5, 150, 105, 0.4);
             animation: glow 2s ease-in-out infinite;
-            display: inline-block;
-            margin-bottom: 0.5rem;
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin: 0.2rem 0 0.4rem 0;
+            padding: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         @keyframes glow {
@@ -257,6 +264,12 @@
             .card {
                 padding: 1rem 0.75rem;
                 border-radius: 14px;
+                height: 175px;
+            }
+
+            .card .domain-highlight {
+                font-size: clamp(0.9rem, 5vw, 1.1rem);
+                margin: 0.15rem 0 0.35rem 0;
             }
 
             .icon {
@@ -276,6 +289,7 @@
             .btn {
                 padding: 0.4rem 0.85rem;
                 font-size: 0.7rem;
+                min-width: 100px;
             }
 
             .sub-btns {
@@ -318,6 +332,12 @@
             .card {
                 padding: 0.85rem 0.5rem;
                 border-radius: 12px;
+                height: 160px;
+            }
+
+            .card .domain-highlight {
+                font-size: clamp(0.75rem, 5.5vw, 0.95rem);
+                margin: 0.1rem 0 0.25rem 0;
             }
 
             .icon {
@@ -337,6 +357,7 @@
             .btn {
                 padding: 0.35rem 0.7rem;
                 font-size: 0.65rem;
+                min-width: 85px;
             }
 
             .sub-btn {
@@ -412,8 +433,7 @@
         </header>
 
         <div class="grid">
-            <article class="card" onclick="window.open('https://truyendichvip.live', '_blank')"
-                style="cursor: pointer;">
+            <article class="card" onclick="window.open('https://truyendichvip.live', '_blank')">
                 <span class="icon">🌐</span>
                 <h3>Web Đọc Truyện</h3>
                 <p class="domain-highlight">truyendichvip.live</p>
@@ -421,25 +441,27 @@
                     cập</a>
             </article>
 
-            <article class="card">
+            <article class="card" onclick="window.open('https://itunes.apple.com/app/id1670092816', '_blank')">
                 <span class="icon">📱</span>
                 <h3>App iOS</h3>
                 <p>Đọc truyện trên iPhone, iPad</p>
-                <a href="https://itunes.apple.com/app/id1670092816" target="_blank" class="btn">🍎 App Store</a>
+                <a href="https://itunes.apple.com/app/id1670092816" target="_blank" class="btn"
+                    onclick="event.stopPropagation()">App Store</a>
             </article>
 
-            <article class="card">
+            <article class="card" onclick="window.location.href='truyendichvip.apk'">
                 <span class="icon">🤖</span>
                 <h3>App Android</h3>
                 <p>Đọc truyện trên điện thoại Android</p>
-                <a href="truyendichvip.apk" download class="btn">📥 Download APK</a>
+                <a href="truyendichvip.apk" download class="btn" onclick="event.stopPropagation()">Download APK</a>
             </article>
 
-            <article class="card">
+            <article class="card" onclick="window.open('https://ebook.truyendichvip.live/', '_blank')">
                 <span class="icon">📚</span>
                 <h3>Ebook Shop</h3>
                 <p>Ebook cho máy đọc sách</p>
-                <a href="https://ebook.truyendichvip.live/" target="_blank" class="btn">Mua Ebook</a>
+                <a href="https://ebook.truyendichvip.live/" target="_blank" class="btn"
+                    onclick="event.stopPropagation()">Mua Ebook</a>
             </article>
         </div>
 
