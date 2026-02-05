@@ -92,6 +92,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-between;
+            min-height: 160px;
+        }
+
+        .card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-action {
+            margin-top: auto;
         }
 
         .card:hover {
@@ -125,21 +138,50 @@
             letter-spacing: -0.01em;
         }
 
-        .btn {
+        .card .domain-highlight {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #059669 !important;
+            letter-spacing: 0.03em;
+            text-shadow: 0 0 12px rgba(5, 150, 105, 0.4);
+            animation: glow 2s ease-in-out infinite;
             display: inline-block;
-            padding: 0.45rem 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 12px rgba(5, 150, 105, 0.4);
+            }
+
+            50% {
+                text-shadow: 0 0 20px rgba(5, 150, 105, 0.6), 0 0 30px rgba(5, 150, 105, 0.4);
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1.2rem;
+            min-width: 120px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            transition: opacity 0.2s ease, transform 0.2s ease;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
         .btn:hover {
             opacity: 0.9;
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
         }
 
         /* Sub buttons */
@@ -365,41 +407,39 @@
 <body>
     <div class="container">
         <header>
-            <h1 class="logo"><img src="logo.png" alt="Truyện Dịch VIP" class="logo-img"> Truyện Dịch VIP</h1>
+            <h1 class="logo"><img src="logo.png" alt="Truyện Dịch VIP" class="logo-img"> Truyện Dịch VIP </h1>
             <p class="tagline">Đọc truyện · Nghe audio · Kho ebook</p>
         </header>
 
         <div class="grid">
-            <article class="card">
+            <article class="card" onclick="window.open('https://truyendichvip.live', '_blank')"
+                style="cursor: pointer;">
                 <span class="icon">🌐</span>
                 <h3>Web Đọc Truyện</h3>
-                <p class="domain">truyendichvip.live</p>
-                <a href="https://truyendichvip.live" class="btn">Truy cập</a>
+                <p class="domain-highlight">truyendichvip.live</p>
+                <a href="https://truyendichvip.live" target="_blank" class="btn" onclick="event.stopPropagation()">Truy
+                    cập</a>
             </article>
 
             <article class="card">
                 <span class="icon">📱</span>
-                <h3>App Di Động</h3>
-                <p>Đọc mọi lúc, Nghe mọi nơi</p>
-                <div class="sub-btns">
-                    <a href="#" class="sub-btn">iOS</a>
-                    <a href="#" class="sub-btn">Android</a>
-                    <a href="#" class="sub-btn">APK</a>
-                </div>
+                <h3>App iOS</h3>
+                <p>Đọc truyện trên iPhone, iPad</p>
+                <a href="https://itunes.apple.com/app/id1670092816" target="_blank" class="btn">🍎 App Store</a>
             </article>
 
             <article class="card">
-                <span class="icon">🎧</span>
-                <h3>Kênh YouTube</h3>
-                <p>Truyện audio chọn lọc miễn phí</p>
-                <a href="#" class="btn">Xem kênh</a>
+                <span class="icon">🤖</span>
+                <h3>App Android</h3>
+                <p>Đọc truyện trên điện thoại Android</p>
+                <a href="truyendichvip.apk" download class="btn">📥 Download APK</a>
             </article>
 
             <article class="card">
                 <span class="icon">📚</span>
                 <h3>Ebook Shop</h3>
                 <p>Ebook cho máy đọc sách</p>
-                <a href="#" class="btn">Mua Ebook</a>
+                <a href="https://ebook.truyendichvip.live/" target="_blank" class="btn">Mua Ebook</a>
             </article>
         </div>
 
